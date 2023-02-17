@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mechBoard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <section class="gallery" id="My setup">
+        <nav class="navMenu">
+            <div class="menu-bar">
+                <a href="#My setup"> My setup </a>
+                <a href="#Size"> Keyboard size </a>
+                <a href="#Switches"> Switches </a>
+                <a href="#Keycaps"> Keycaps </a>
+                <a href="#Stabilizers"> Stabilizers </a>
+                <a href="#Accessories"> Accessories</a>
+            </div>
+        </nav>
+        <div class="slideshow-container">
+            <div class="slider-add">
+                <div class="slider-add-wrapper">
+                    <div class="slider-add-inner">
+                        <div class="slide-add">
+                            <img src="img/outemu.jpg" alt="outemu">
+                        </div>
+                        <div class="slide-add">
+                            <img src="img/keycaps.jpg" alt="keycaps">
+                        </div>
+                        <div class="slide-add">
+                            <img src="img/akko3084.jpeg" alt="akko kb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-descr">
+                <div class="slide-name">Akko 3084b (75%)</div>
+            </div>
+            <div class="slider-main">
+                <div class="slider-wrapper">
+                    <div class="slider-inner">
+                        <div class="slide" data-name="Akko 3084b (75%)">
+                            <img src="img/akko3084.jpeg" alt="akko kb">
+                        </div>
+                        <div class="slide" data-name="Outemu cream yellow">
+                            <img src="img/outemu.jpg" alt="outemu">
+                        </div>
+                        <div class="slide" data-name="Akko ASA keycaps">
+                            <img src="img/keycaps.jpg" alt="keycaps">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-counter">
+                    <div class="slider-prev">
+                        <img src="img/left.svg" alt="prev" />
+                    </div>
+                    <span id="current">3</span>
+                    <span id="slash"> / </span>
+                    <span id="total">4</span>
+                    <div class="slider-next">
+                        <img src="img/right.svg" alt="next" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="slideshow slideshow--anchor"></div>
+    </section>
+
+    <section class="size" id="Size">
+        <div class="size-container">
+            <div class="size-img">
+                <img src="img/fullsize.png" alt="fullsize">
+            </div>
+            <div class="size-descr">
+                <h2 class="size-title">100%</h2>
+                <p class="size-text">Стандартная полноразмерная клавиатура со всеми необходимыми клавишами</p>
+            </div>
+            <div class="size-img size-img-80">
+                <img src="img/tkl.png" alt="TKL">
+            </div>
+            <div class="size-descr">
+                <h2 class="size-title">TKL (80-87%)</h2>
+                <p class="size-text">Клавиатура без нампада, но с тем же расположением остальных клавиш</p>
+            </div>
+            <div class="size-img size-img-75">
+                <img src="img/75.png" alt="75%">
+            </div>
+            <div class="size-descr">
+                <h2 class="size-title">75%</h2>
+                <p class="size-text">Чуть меньше клавиш, чем у TKL, располагаются вплотную к блоку стрелок для экономии
+                    места</p>
+            </div>
+            <div class="size-img size-img-60">
+                <img src="img/60.png" alt="60%">
+            </div>
+            <div class="size-descr">
+                <h2 class="size-title">60%</h2>
+                <p class="size-text">Отсутствует блок стрелок и F-клавиш, доступ к ним осуществляется с нажатой клавишей
+                    FN</p>
+            </div>
+    </section>
+    <section class="switches" id="Switches">
+        <div class="switches-container">
+            <div class="switches-info">
+                <div class="switches-img"
+                    data-text="У этого типа свича равномерное нажатие в течение всего хода, нет тактильной и звуковой отдачи при срабатывании (Нажми на картинку)">
+                    <img data-name="linear" src="img/linear.png" alt="linear">
+                </div>
+                <div class="switches-title">Линейный</div>
+            </div>
+            <div class="switches-info">
+                <div class="switches-img"
+                    data-text="Тактильный свич имеет приятный отклик в момент срабатывания, который также называют бампом (Нажми на картинку)">
+                    <img data-name="tactile" src="img/tactile.png" alt="tactile">
+                </div>
+                <div class="switches-title">Тактильный</div>
+            </div>
+            <div class="switches-info">
+                <div class="switches-img"
+                    data-text="Исчадие ада, издающее громкий нервирующий звук при срабатывании     (Нажми на картинку)">
+                    <img data-name="clicky" src="img/clicky.png" alt="clicky">
+                </div>
+                <div class="switches-title">Кликающий</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart">
+        <div class="chart-container">
+
+        </div>
+    </section>
+
+    <audio data-name="linear" src="music/Linear.wav"></audio>
+    <audio data-name="tactile" src="music/Tactile.wav"></audio>
+    <audio data-name="clicky" src="music/Clicky.wav"></audio>
+    <!-- !Scripts -->
+
+
+
+    <!-- !Last script -->
+    <script src="index.js"></script>
+</body>
+
+</html>
