@@ -59,6 +59,13 @@ module.exports = {
         },
       },
       {
+        test: /\.wav$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "music/[name][ext]",
+        },
+      },
+      {
         test: /\.(jpe?g||webp||gif||png||svg)$/i,
         use: [
           {
