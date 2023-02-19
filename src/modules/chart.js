@@ -1,6 +1,6 @@
 "use strict";
 import Chart from "chart.js/auto";
-
+import ky from "ky";
 async function chart() {
   const data = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -47,6 +47,7 @@ async function chart() {
   // render init block
   const myChart = new Chart(document.getElementById("myChart"), config);
   //!Fetch block
+
   const btn = document.querySelectorAll(".fetch-btn");
   btn.forEach(function (elem) {
     elem.addEventListener("click", function (e) {
@@ -75,6 +76,18 @@ async function chart() {
       myChart.update();
     });
   }
+  async function addTodo() {
+    const newTodo = {
+      firstName: "Marian",
+      lastName: "Gowno3333",
+      email: "gowno@gmail.com",
+      id: 1,
+    };
+    const todos = await ky.post("http://localhost:3000/financialreport", {
+      json: newTodo,
+    });
+  }
+  addTodo();
 }
 
 export default chart;

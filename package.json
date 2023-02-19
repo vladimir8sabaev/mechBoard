@@ -37,6 +37,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "chart.js": "^4.2.1",
-    "core-js": "^3.28.0"
+    "core-js": "^3.28.0",
+    "ky": "^0.33.2"
   }
 }
