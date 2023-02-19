@@ -46,5 +46,35 @@ async function chart() {
 
   // render init block
   const myChart = new Chart(document.getElementById("myChart"), config);
+  //!Fetch block
+  const btn = document.querySelectorAll(".fetch-btn");
+  btn.forEach(function (elem) {
+    elem.addEventListener("click", function (e) {
+      stockData(e.target.dataset.number);
+    });
+  });
+  function stockData(number) {
+    async function getData() {
+      const url = "http://localhost:3000/financialreport";
+      const response = await fetch(url);
+      const datapoints = await response.json();
+      console.log(datapoints);
+      return datapoints;
+    }
+    getData().then((datapoints) => {
+      const month = datapoints[number].financials.map(function (index) {
+        return index.date;
+      });
+      const profits = datapoints[number].financials.map(function (index) {
+        return index.profits;
+      });
+      const companyname = datapoints[number].companyname;
+      myChart.config.data.labels = month;
+      myChart.config.data.datasets[0].data = profits;
+      myChart.config.data.datasets[0].label = companyname;
+      myChart.update();
+    });
+  }
 }
+
 export default chart;

@@ -5,14 +5,14 @@ const mode = process.env.NODE_ENV || "development";
 const devMode = mode === "delevopment";
 const target = devMode ? "web" : "browserslist";
 const devtool = devMode ? "source-map" : undefined;
-
+const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   mode,
   target,
   devtool,
   devServer: {
     static: path.resolve(__dirname, "src"),
-    port: 3000,
+    port: 5000,
     open: true,
     hot: true,
   },
@@ -28,6 +28,9 @@ module.exports = {
       template: path.resolve(__dirname, "src", "index.html"),
     }),
     new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    // new CopyPlugin({
+    //   patterns: [{ from: "src/data", to: "data" }],
+    // }),
   ],
   module: {
     rules: [
