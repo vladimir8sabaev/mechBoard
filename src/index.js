@@ -4,7 +4,7 @@ import "./index.sass";
 import slider from "./modules/slider";
 import switches from "./modules/switches";
 import chart from "./modules/chart";
-
+import modalController from "./modules/modal";
 slider({
   container: ".slider-main",
   nextArrow: ".slider-next",
@@ -18,3 +18,4 @@ slider({
 });
 switches();
 chart();
+modalController();
