@@ -3,7 +3,7 @@ import Chart from "chart.js/auto";
 import ky from "ky";
 async function chart() {
   const data = {
-    labels: ["Thu", "Fri", "Sat"],
+    labels: [],
     datasets: [
       {
         label: "Weekly Sales",
@@ -64,7 +64,6 @@ async function chart() {
   });
   async function stockData() {
     const data = await ky.get("http://localhost:3000/switches").json();
-    console.log("data:", data);
     const switchName = data.map(function (item) {
       return item.name;
     });
@@ -74,9 +73,6 @@ async function chart() {
     const switchFeeling = data.map(function (item) {
       return item.feeling;
     });
-    console.log(switchName);
-    console.log(switchNoise);
-    console.log(switchFeeling);
     myChart.config.data.labels = switchName;
     if (dataType) {
       myChart.config.data.datasets[0].data = switchFeeling;
