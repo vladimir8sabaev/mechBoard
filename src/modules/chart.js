@@ -3,28 +3,20 @@ import Chart from "chart.js/auto";
 import ky from "ky";
 async function chart() {
   const data = {
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    labels: ["Thu", "Fri", "Sat"],
     datasets: [
       {
         label: "Weekly Sales",
-        data: [18, 12, 6, 9, 12, 3, 9],
+        data: [9, 12, 3],
         backgroundColor: [
-          "rgba(255, 26, 104, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
-          "rgba(0, 0, 0, 0.2)",
         ],
         borderColor: [
-          "rgba(255, 26, 104, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
           "rgba(75, 192, 192, 1)",
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)",
-          "rgba(0, 0, 0, 1)",
         ],
         borderWidth: 1,
       },
@@ -47,47 +39,54 @@ async function chart() {
   // render init block
   const myChart = new Chart(document.getElementById("myChart"), config);
   //!Fetch block
-
+  let dataType = true;
+  stockData();
   const btn = document.querySelectorAll(".fetch-btn");
+  function setupBtn() {
+    btn.forEach((elem) => {
+      elem.style.backgroundColor = "transparent";
+      elem.style.borderColor = elem.dataset.color;
+      elem.style.color = "black";
+    });
+  }
+  setupBtn();
+  const startBtn = document.querySelector("#startBtn");
+  startBtn.style.backgroundColor = "black";
+  startBtn.style.color = "white";
   btn.forEach(function (elem) {
     elem.addEventListener("click", function (e) {
-      stockData(e.target.dataset.number);
+      dataType = e.target.dataset.number;
+      setupBtn();
+      stockData();
+      e.target.style.backgroundColor = e.target.dataset.color;
+      e.target.style.color = "white";
     });
   });
-  function stockData(number) {
-    async function getData() {
-      const url = "http://localhost:3000/financialreport";
-      const response = await fetch(url);
-      const datapoints = await response.json();
-      console.log(datapoints);
-      return datapoints;
+  async function stockData() {
+    const data = await ky.get("http://localhost:3000/switches").json();
+    console.log("data:", data);
+    const switchName = data.map(function (item) {
+      return item.name;
+    });
+    const switchNoise = data.map(function (item) {
+      return item.noise;
+    });
+    const switchFeeling = data.map(function (item) {
+      return item.feeling;
+    });
+    console.log(switchName);
+    console.log(switchNoise);
+    console.log(switchFeeling);
+    myChart.config.data.labels = switchName;
+    if (dataType) {
+      myChart.config.data.datasets[0].data = switchFeeling;
+      myChart.config.data.datasets[0].label = "Feeling";
+    } else {
+      myChart.config.data.datasets[0].data = switchNoise;
+      myChart.config.data.datasets[0].label = "Noise";
     }
-    getData().then((datapoints) => {
-      const month = datapoints[number].financials.map(function (index) {
-        return index.date;
-      });
-      const profits = datapoints[number].financials.map(function (index) {
-        return index.profits;
-      });
-      const companyname = datapoints[number].companyname;
-      myChart.config.data.labels = month;
-      myChart.config.data.datasets[0].data = profits;
-      myChart.config.data.datasets[0].label = companyname;
-      myChart.update();
-    });
+    myChart.update();
   }
-  async function addTodo() {
-    const newTodo = {
-      firstName: "Marian",
-      lastName: "Gowno3333",
-      email: "gowno@gmail.com",
-      id: 1,
-    };
-    const todos = await ky.post("http://localhost:3000/financialreport", {
-      json: newTodo,
-    });
-  }
-  addTodo();
 }
 
 export default chart;
