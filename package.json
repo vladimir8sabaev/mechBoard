@@ -19,11 +19,11 @@
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.1.0",
-    "json-server": "^0.17.1",
+    "json-server": "^0.17.2",
     "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
@@ -38,7 +38,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "chart.js": "^4.2.1",
-    "core-js": "^3.28.0",
+    "core-js": "^3.29.0",
     "ky": "^0.33.2"
   }
 }
