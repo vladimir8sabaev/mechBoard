@@ -1,0 +1,60 @@
+.chart {
+	min-height: 100vh;
+	background-image: url("img/chart-bg.png");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	&-container {
+		display: block;
+		margin: 0 auto;
+		max-width: 1200px;
+		display: grid;
+		grid-template-columns: 2.5fr 1fr;
+		grid-template-rows: 100vh;
+		align-content: center;
+		justify-items: center;
+		gap: 50px;
+	}
+}
+
+.chartDescr {
+	display: flex;
+	align-items: center;
+	p {
+		color: white;
+		font-size: 25px;
+		font-weight: 400;
+	}
+}
+.chartCard {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.chartBox {
+	width: 100%;
+	padding: 20px;
+	border-radius: 20px;
+	background: white;
+}
+
+.chartBtnWrapper {
+	padding-top: 30px;
+	display: flex;
+	justify-content: flex-start;
+	.fetch-btn {
+		cursor: pointer;
+		transition: 0.3s all;
+		margin-right: 30px;
+		width: 150px;
+		height: 40px;
+		border-radius: 25px;
+		border-color: red;
+		background-color: transparent;
+		color: black;
+		font-size: 22px;
+		font-weight: 600;
+	}
+}

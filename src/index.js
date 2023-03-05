@@ -1,6 +1,6 @@
 "use strict";
 import "./index.html";
-import "./index.sass";
+import "./index.scss";
 import slider from "./modules/slider";
 import switches from "./modules/switches";
 import chart from "./modules/chart";
